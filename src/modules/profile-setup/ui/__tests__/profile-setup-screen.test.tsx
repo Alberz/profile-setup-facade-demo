@@ -1,0 +1,47 @@
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { describe, expect, it } from 'vitest';
+import { ProfileSetupScreen } from '../screens/profile-setup-screen';
+import { createProfileSetupFacade } from '../../application/create-facade';
+
+describe('ProfileSetupScreen', () => {
+  it('lets the user complete the main onboarding flow', async () => {
+    const user = userEvent.setup();
+    const facade = createProfileSetupFacade({ saveDelayMs: 0, now: () => new Date('2026-05-15') });
+    render(<ProfileSetupScreen facade={facade} />);
+
+    await user.type(screen.getByLabelText('Nombre'), 'Ada');
+    await user.type(screen.getByLabelText('Apellidos'), 'Lovelace');
+    await user.type(screen.getByLabelText('Fecha de nacimiento'), '1990-01-01');
+    await user.type(screen.getByLabelText('DNI'), '12345678Z');
+    await user.type(screen.getByLabelText('Email'), 'ada@example.com');
+    await user.click(screen.getByRole('button', { name: 'Siguiente' }));
+
+    await user.type(screen.getByLabelText('Música'), 'Jazz');
+    await user.type(screen.getByLabelText('Deportes'), 'Natación');
+    await user.type(screen.getByLabelText('Hobbies'), 'Lectura');
+    await user.type(screen.getByLabelText('Intereses culturales'), 'Teatro');
+    await user.selectOptions(screen.getByLabelText('Nivel de actividad social'), 'medium');
+    await user.click(screen.getByRole('button', { name: 'Siguiente' }));
+
+    await user.type(screen.getByLabelText('Qué buscas en la app'), 'Conocer gente afín');
+    await user.selectOptions(screen.getByLabelText('Preferencia de comunicación'), 'email');
+    await user.type(screen.getByLabelText('Ciudad o zona'), 'Madrid centro');
+    await user.selectOptions(screen.getByLabelText('Frecuencia esperada de uso'), 'weekly');
+    await user.click(screen.getByLabelText('Acepto los términos del servicio'));
+    await user.click(screen.getByLabelText('Acepto la política de privacidad'));
+    await user.click(screen.getByRole('button', { name: 'Guardar perfil' }));
+
+    expect(await screen.findByText('Perfil guardado correctamente.')).toBeInTheDocument();
+  });
+
+  it('shows DNI help through a UI-only modal hook', async () => {
+    const user = userEvent.setup();
+    const facade = createProfileSetupFacade({ saveDelayMs: 0 });
+    render(<ProfileSetupScreen facade={facade} />);
+
+    await user.click(screen.getByRole('button', { name: 'Ayuda sobre el DNI' }));
+
+    expect(screen.getByRole('dialog', { name: 'Ayuda sobre el DNI' })).toBeInTheDocument();
+  });
+});
