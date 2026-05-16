@@ -5,6 +5,7 @@ import { validateInterestsStep } from './validators/validate-interests-step';
 import { validatePersonalInfoStep } from './validators/validate-personal-info-step';
 import { validatePreferencesStep } from './validators/validate-preferences-step';
 import { silentTrigger, type Trigger } from './trigger';
+import { validSampleProfileSetupDraft } from './sample-profile-setup-draft';
 
 const orderedSteps: StepId[] = ['personal-info', 'interests', 'preferences'];
 
@@ -53,6 +54,15 @@ export function createProfileSetupFacade(options: CreateFacadeOptions = {}) {
         store.setState((state) => ({
           ...state,
           draft: { ...state.draft, preferences },
+          fieldErrors: {},
+          error: null,
+        }));
+      },
+      fillWithValidSampleData() {
+        trigger('demo-data-filled');
+        store.setState((state) => ({
+          ...state,
+          draft: validSampleProfileSetupDraft,
           fieldErrors: {},
           error: null,
         }));

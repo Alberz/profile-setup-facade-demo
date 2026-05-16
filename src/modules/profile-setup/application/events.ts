@@ -5,4 +5,5 @@ export type ProfileSetupEvent =
   | 'preferences-saved'
   | 'next-requested'
   | 'previous-requested'
-  | 'submit-requested';
+  | 'submit-requested'
+  | 'demo-data-filled';

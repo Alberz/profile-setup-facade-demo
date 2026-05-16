@@ -1,0 +1,65 @@
+.backdrop {
+  align-items: center;
+  background: rgba(16, 27, 49, 0.48);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 1rem;
+  position: fixed;
+  z-index: 10;
+}
+
+.modal {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 1.6rem;
+  box-shadow: 0 24px 70px rgba(16, 27, 49, 0.24);
+  display: grid;
+  gap: 1rem;
+  max-width: 29rem;
+  padding: 1.6rem;
+}
+
+.iconBadge {
+  align-items: center;
+  background: #fff4ed;
+  border-radius: 999px;
+  color: var(--color-accent);
+  display: inline-flex;
+  height: 3rem;
+  justify-content: center;
+  width: 3rem;
+}
+
+.iconBadge svg {
+  height: 1.55rem;
+  width: 1.55rem;
+}
+
+.modal h2 {
+  color: var(--color-text);
+  font-size: 1.45rem;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.modal p {
+  color: var(--color-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.closeButton {
+  align-items: center;
+  background: var(--color-accent);
+  border: 0;
+  border-radius: 0.9rem;
+  color: #ffffff;
+  display: inline-flex;
+  font-weight: 800;
+  gap: 0.5rem;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0 1rem;
+}

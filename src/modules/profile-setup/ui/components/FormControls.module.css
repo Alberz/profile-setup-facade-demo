@@ -1,0 +1,139 @@
+.field {
+  display: grid;
+  gap: 0.42rem;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.labelRow {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.label {
+  color: var(--color-text);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.controlShell {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 0.85rem;
+  box-shadow: 0 7px 16px rgba(16, 27, 49, 0.05);
+  color: #7a8495;
+  display: flex;
+  gap: 0.7rem;
+  min-height: 3.25rem;
+  padding: 0 0.9rem;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.controlShell:focus-within {
+  border-color: rgba(255, 90, 10, 0.62);
+  box-shadow: 0 10px 22px rgba(255, 90, 10, 0.12), 0 0 0 3px rgba(255, 90, 10, 0.09);
+  transform: translateY(-1px);
+}
+
+.hasError {
+  border-color: rgba(186, 26, 26, 0.55);
+}
+
+.icon {
+  color: #667085;
+  height: 1.15rem;
+  width: 1.15rem;
+}
+
+.input,
+.select,
+.textarea {
+  background: transparent;
+  border: 0;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  min-width: 0;
+  outline: 0;
+  width: 100%;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #9aa3b2;
+  font-weight: 600;
+}
+
+.select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.textareaShell {
+  align-items: flex-start;
+  min-height: 7.2rem;
+  padding-top: 0.85rem;
+}
+
+.textarea {
+  line-height: 1.45;
+  min-height: 5.5rem;
+  resize: vertical;
+}
+
+.error {
+  color: #b42318;
+  font-size: 0.76rem;
+  font-weight: 700;
+  margin: -0.25rem 0 0;
+}
+
+.checkboxError {
+  margin: 0.42rem 0 0 1rem;
+}
+
+.helpButton {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: var(--color-accent);
+  display: inline-flex;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 0;
+}
+
+.helpButton:hover {
+  color: var(--color-accent-dark);
+}
+
+.checkboxField {
+  align-items: flex-start;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 0.8rem;
+  box-shadow: 0 10px 24px rgba(16, 27, 49, 0.05);
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.78rem;
+}
+
+.checkboxField input {
+  accent-color: var(--color-accent);
+  height: 0.95rem;
+  margin-top: 0.16rem;
+  width: 0.95rem;
+}
+
+.checkboxLabel {
+  color: var(--color-text);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
