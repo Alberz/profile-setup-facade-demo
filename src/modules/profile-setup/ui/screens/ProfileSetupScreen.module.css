@@ -9,8 +9,8 @@
 
 .card,
 .successCard {
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(231, 233, 239, 0.95);
+  background: oklch(100% 0 0 / 94%);
+  border: 1px solid oklch(93% 0.01 264 / 95%);
   border-radius: 1.65rem;
   box-shadow: var(--shadow-soft);
   padding: clamp(1.1rem, 3vw, 2rem);
@@ -62,8 +62,8 @@
   align-items: center;
   background: var(--color-accent);
   border-radius: 999px;
-  box-shadow: 0 16px 30px rgba(255, 90, 10, 0.28);
-  color: #ffffff;
+  box-shadow: 0 16px 30px oklch(68% 0.22 35 / 28%);
+  color: var(--color-surface);
   display: inline-flex;
   height: 3.2rem;
   justify-content: center;
@@ -77,8 +77,8 @@
 
 .demoButton {
   align-items: center;
-  background: #fff4ed;
-  border: 1px solid rgba(255, 90, 10, 0.18);
+  background: var(--color-accent-soft);
+  border: 1px solid oklch(68% 0.22 35 / 18%);
   border-radius: 999px;
   color: var(--color-accent-dark);
   display: inline-flex;
@@ -91,7 +91,7 @@
 }
 
 .demoButton:hover {
-  background: #ffe7d6;
+  background: var(--color-accent-soft-hover);
 }
 
 .demoButton svg {

@@ -54,9 +54,9 @@
 }
 
 .primaryButton {
-  background: linear-gradient(135deg, #ff7a1a 0%, var(--color-accent) 46%, #f04405 100%);
-  box-shadow: 0 12px 22px rgba(255, 90, 10, 0.24);
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-accent) 46%, var(--color-accent-strong) 100%);
+  box-shadow: 0 12px 22px oklch(68% 0.22 35 / 24%);
+  color: var(--color-surface);
   flex: 1;
   font-size: 0.95rem;
   max-width: 100%;
@@ -64,18 +64,18 @@
 }
 
 .primaryButton:hover:not(:disabled) {
-  box-shadow: 0 16px 26px rgba(255, 90, 10, 0.3);
+  box-shadow: 0 16px 26px oklch(68% 0.22 35 / 30%);
   transform: translateY(-1px);
 }
 
 .secondaryButton {
-  background: #fff4ed;
+  background: var(--color-accent-soft);
   color: var(--color-accent-dark);
   padding: 0 0.95rem;
 }
 
 .secondaryButton:hover:not(:disabled) {
-  background: #ffe7d6;
+  background: var(--color-accent-soft-hover);
 }
 
 .buttonIcon {

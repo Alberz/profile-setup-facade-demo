@@ -23,11 +23,11 @@
 
 .controlShell {
   align-items: center;
-  background: #ffffff;
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 0.85rem;
-  box-shadow: 0 7px 16px rgba(16, 27, 49, 0.05);
-  color: #7a8495;
+  box-shadow: 0 7px 16px oklch(21% 0.043 264 / 5%);
+  color: var(--color-muted);
   display: flex;
   gap: 0.7rem;
   min-height: 3.25rem;
@@ -36,17 +36,17 @@
 }
 
 .controlShell:focus-within {
-  border-color: rgba(255, 90, 10, 0.62);
-  box-shadow: 0 10px 22px rgba(255, 90, 10, 0.12), 0 0 0 3px rgba(255, 90, 10, 0.09);
+  border-color: var(--focus-border);
+  box-shadow: 0 10px 22px oklch(68% 0.22 35 / 12%), 0 0 0 3px oklch(68% 0.22 35 / 9%);
   transform: translateY(-1px);
 }
 
 .hasError {
-  border-color: rgba(186, 26, 26, 0.55);
+  border-color: var(--color-danger-border);
 }
 
 .icon {
-  color: #667085;
+  color: var(--color-muted);
   height: 1.15rem;
   width: 1.15rem;
 }
@@ -66,7 +66,7 @@
 
 .input::placeholder,
 .textarea::placeholder {
-  color: #9aa3b2;
+  color: var(--color-placeholder);
   font-weight: 600;
 }
 
@@ -88,7 +88,7 @@
 }
 
 .error {
-  color: #b42318;
+  color: var(--color-danger);
   font-size: 0.76rem;
   font-weight: 700;
   margin: -0.25rem 0 0;
@@ -116,10 +116,10 @@
 
 .checkboxField {
   align-items: flex-start;
-  background: #ffffff;
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 0.8rem;
-  box-shadow: 0 10px 24px rgba(16, 27, 49, 0.05);
+  box-shadow: 0 10px 24px oklch(21% 0.043 264 / 5%);
   display: flex;
   gap: 0.6rem;
   padding: 0.78rem;

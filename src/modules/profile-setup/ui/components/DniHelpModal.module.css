@@ -1,6 +1,6 @@
 .backdrop {
   align-items: center;
-  background: rgba(16, 27, 49, 0.48);
+  background: var(--color-overlay);
   display: flex;
   inset: 0;
   justify-content: center;
@@ -10,10 +10,10 @@
 }
 
 .modal {
-  background: #ffffff;
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 1.6rem;
-  box-shadow: 0 24px 70px rgba(16, 27, 49, 0.24);
+  box-shadow: 0 24px 70px oklch(21% 0.043 264 / 24%);
   display: grid;
   gap: 1rem;
   max-width: 29rem;
@@ -22,7 +22,7 @@
 
 .iconBadge {
   align-items: center;
-  background: #fff4ed;
+  background: var(--color-accent-soft);
   border-radius: 999px;
   color: var(--color-accent);
   display: inline-flex;
@@ -55,7 +55,7 @@
   background: var(--color-accent);
   border: 0;
   border-radius: 0.9rem;
-  color: #ffffff;
+  color: var(--color-surface);
   display: inline-flex;
   font-weight: 800;
   gap: 0.5rem;
