@@ -1,3 +1,11 @@
-export { createProfileSetupFacade } from './application/create-facade';
-export type { ProfileSetupFacade } from './application/create-facade';
-export { ProfileSetupScreen } from './ui/screens/ProfileSetupScreen';
+export { createProfileSetupCore } from './application/create-profile-setup-core';
+export type { CreateProfileSetupCoreOptions, ProfileSetupCore, SaveProfile } from './application/create-profile-setup-core';
+export { createProfileSetupReactFacade } from './application/create-react-facade';
+export type { ProfileSetupReactFacade } from './application/create-react-facade';
+export { createProfileSetupVueFacade } from './application/create-vue-facade';
+export type { ProfileSetupVueFacade } from './application/create-vue-facade';
+export { createProfileSetupReactFacade as createProfileSetupFacade } from './application/create-react-facade';
+export type { ProfileSetupReactFacade as ProfileSetupFacade } from './application/create-react-facade';
+export { ProfileSetupReactScreen } from './ui/react/screens/ProfileSetupScreen';
+export { ProfileSetupReactScreen as ProfileSetupScreen } from './ui/react/screens/ProfileSetupScreen';
+export { default as ProfileSetupVueScreen } from './ui/vue/screens/ProfileSetupVueScreen.vue';

@@ -1,14 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
-import { ProfileSetupScreen } from '../screens/ProfileSetupScreen';
-import { createProfileSetupFacade } from '../../application/create-facade';
+import { createProfileSetupReactFacade } from '../../../application/create-react-facade';
+import { ProfileSetupReactScreen } from '../screens/ProfileSetupScreen';
 
-describe('ProfileSetupScreen', () => {
+describe('ProfileSetupReactScreen', () => {
   it('lets the user complete the main onboarding flow', async () => {
     const user = userEvent.setup();
-    const facade = createProfileSetupFacade({ saveDelayMs: 0, now: () => new Date('2026-05-15') });
-    render(<ProfileSetupScreen facade={facade} />);
+    const facade = createProfileSetupReactFacade({ now: () => new Date('2026-05-15'), saveProfile: async () => {} });
+    render(<ProfileSetupReactScreen facade={facade} />);
 
     await user.type(screen.getByLabelText('Nombre'), 'Ada');
     await user.type(screen.getByLabelText('Apellidos'), 'Lovelace');
@@ -35,11 +35,10 @@ describe('ProfileSetupScreen', () => {
     expect(await screen.findByText('Perfil guardado correctamente.')).toBeInTheDocument();
   });
 
-
   it('fills all onboarding steps with valid demo data from a button outside the form', async () => {
     const user = userEvent.setup();
-    const facade = createProfileSetupFacade({ saveDelayMs: 0, now: () => new Date('2026-05-15') });
-    render(<ProfileSetupScreen facade={facade} />);
+    const facade = createProfileSetupReactFacade({ now: () => new Date('2026-05-15'), saveProfile: async () => {} });
+    render(<ProfileSetupReactScreen facade={facade} />);
 
     await user.click(screen.getByRole('button', { name: 'Rellenar demo' }));
 
@@ -73,8 +72,8 @@ describe('ProfileSetupScreen', () => {
 
   it('shows DNI help through a UI-only modal hook', async () => {
     const user = userEvent.setup();
-    const facade = createProfileSetupFacade({ saveDelayMs: 0 });
-    render(<ProfileSetupScreen facade={facade} />);
+    const facade = createProfileSetupReactFacade({ saveProfile: async () => {} });
+    render(<ProfileSetupReactScreen facade={facade} />);
 
     await user.click(screen.getByRole('button', { name: 'Ayuda sobre el DNI' }));
 

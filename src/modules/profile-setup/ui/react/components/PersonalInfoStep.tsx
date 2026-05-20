@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import type { FieldErrors, PersonalInfo } from '../../domain/models/profile-setup';
+import type { FieldErrors, PersonalInfo } from '../../../domain/models/profile-setup';
+import styles from '../../shared/styles/StepForm.module.css';
+import { useDniHelpModal } from '../hooks/useDniHelpModal';
 import { DniHelpModal } from './DniHelpModal';
 import { FormField } from './FormControls';
 import { Icon } from './Icon';
-import { useDniHelpModal } from '../hooks/useDniHelpModal';
-import styles from './StepForm.module.css';
 
 type PersonalInfoStepProps = {
   value: PersonalInfo;

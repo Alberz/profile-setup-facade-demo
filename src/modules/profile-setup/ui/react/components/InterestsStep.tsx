@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import type { FieldErrors, Interests } from '../../domain/models/profile-setup';
+import type { FieldErrors, Interests } from '../../../domain/models/profile-setup';
+import styles from '../../shared/styles/StepForm.module.css';
 import { FormField, SelectField } from './FormControls';
 import { Icon } from './Icon';
-import styles from './StepForm.module.css';
 
 type InterestsStepProps = {
   value: Interests;
@@ -28,42 +28,10 @@ export function InterestsStep({ value, errors, onBack, onNext }: InterestsStepPr
       </header>
 
       <div className={styles.grid}>
-        <FormField
-          error={errors.music}
-          icon="music"
-          id="music"
-          label="Música"
-          placeholder="Jazz, indie, clásica..."
-          value={form.music}
-          onChange={(event) => setForm((current) => ({ ...current, music: event.target.value }))}
-        />
-        <FormField
-          error={errors.sports}
-          icon="activity"
-          id="sports"
-          label="Deportes"
-          placeholder="Natación, running..."
-          value={form.sports}
-          onChange={(event) => setForm((current) => ({ ...current, sports: event.target.value }))}
-        />
-        <FormField
-          error={errors.hobbies}
-          icon="sparkles"
-          id="hobbies"
-          label="Hobbies"
-          placeholder="Lectura, cocina..."
-          value={form.hobbies}
-          onChange={(event) => setForm((current) => ({ ...current, hobbies: event.target.value }))}
-        />
-        <FormField
-          error={errors.culturalInterests}
-          icon="message"
-          id="culturalInterests"
-          label="Intereses culturales"
-          placeholder="Teatro, museos..."
-          value={form.culturalInterests}
-          onChange={(event) => setForm((current) => ({ ...current, culturalInterests: event.target.value }))}
-        />
+        <FormField error={errors.music} icon="music" id="music" label="Música" placeholder="Jazz, indie, clásica..." value={form.music} onChange={(event) => setForm((current) => ({ ...current, music: event.target.value }))} />
+        <FormField error={errors.sports} icon="activity" id="sports" label="Deportes" placeholder="Natación, running..." value={form.sports} onChange={(event) => setForm((current) => ({ ...current, sports: event.target.value }))} />
+        <FormField error={errors.hobbies} icon="sparkles" id="hobbies" label="Hobbies" placeholder="Lectura, cocina..." value={form.hobbies} onChange={(event) => setForm((current) => ({ ...current, hobbies: event.target.value }))} />
+        <FormField error={errors.culturalInterests} icon="message" id="culturalInterests" label="Intereses culturales" placeholder="Teatro, museos..." value={form.culturalInterests} onChange={(event) => setForm((current) => ({ ...current, culturalInterests: event.target.value }))} />
         <SelectField
           error={errors.socialActivityLevel}
           fullWidth

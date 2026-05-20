@@ -1,5 +1,5 @@
+import styles from '../../shared/styles/DniHelpModal.module.css';
 import { Icon } from './Icon';
-import styles from './DniHelpModal.module.css';
 
 type DniHelpModalProps = {
   isOpen: boolean;

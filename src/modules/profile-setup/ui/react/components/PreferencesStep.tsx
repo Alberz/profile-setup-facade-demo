@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import type { FieldErrors, Preferences } from '../../domain/models/profile-setup';
+import type { FieldErrors, Preferences } from '../../../domain/models/profile-setup';
+import styles from '../../shared/styles/StepForm.module.css';
 import { CheckboxField, FormField, SelectField, TextAreaField } from './FormControls';
 import { Icon } from './Icon';
-import styles from './StepForm.module.css';
 
 type PreferencesStepProps = {
   value: Preferences;
@@ -29,15 +29,7 @@ export function PreferencesStep({ value, errors, isSaving, onBack, onSubmit }: P
       </header>
 
       <div className={styles.grid}>
-        <TextAreaField
-          error={errors.appGoal}
-          icon="target"
-          id="appGoal"
-          label="Qué buscas en la app"
-          placeholder="Cuéntanos brevemente tu objetivo..."
-          value={form.appGoal}
-          onChange={(event) => setForm((current) => ({ ...current, appGoal: event.target.value }))}
-        />
+        <TextAreaField error={errors.appGoal} icon="target" id="appGoal" label="Qué buscas en la app" placeholder="Cuéntanos brevemente tu objetivo..." value={form.appGoal} onChange={(event) => setForm((current) => ({ ...current, appGoal: event.target.value }))} />
         <SelectField
           error={errors.communicationPreference}
           icon="send"
@@ -52,15 +44,7 @@ export function PreferencesStep({ value, errors, isSaving, onBack, onSubmit }: P
           value={form.communicationPreference}
           onChange={(event) => setForm((current) => ({ ...current, communicationPreference: event.target.value as Preferences['communicationPreference'] }))}
         />
-        <FormField
-          error={errors.cityOrArea}
-          icon="map-pin"
-          id="cityOrArea"
-          label="Ciudad o zona"
-          placeholder="Madrid centro"
-          value={form.cityOrArea}
-          onChange={(event) => setForm((current) => ({ ...current, cityOrArea: event.target.value }))}
-        />
+        <FormField error={errors.cityOrArea} icon="map-pin" id="cityOrArea" label="Ciudad o zona" placeholder="Madrid centro" value={form.cityOrArea} onChange={(event) => setForm((current) => ({ ...current, cityOrArea: event.target.value }))} />
         <SelectField
           error={errors.expectedUsageFrequency}
           icon="repeat"
@@ -75,20 +59,8 @@ export function PreferencesStep({ value, errors, isSaving, onBack, onSubmit }: P
           value={form.expectedUsageFrequency}
           onChange={(event) => setForm((current) => ({ ...current, expectedUsageFrequency: event.target.value as Preferences['expectedUsageFrequency'] }))}
         />
-        <CheckboxField
-          checked={form.acceptsTerms}
-          error={errors.acceptsTerms}
-          id="acceptsTerms"
-          label="Acepto los términos del servicio"
-          onChange={(acceptsTerms) => setForm((current) => ({ ...current, acceptsTerms }))}
-        />
-        <CheckboxField
-          checked={form.acceptsPrivacy}
-          error={errors.acceptsPrivacy}
-          id="acceptsPrivacy"
-          label="Acepto la política de privacidad"
-          onChange={(acceptsPrivacy) => setForm((current) => ({ ...current, acceptsPrivacy }))}
-        />
+        <CheckboxField checked={form.acceptsTerms} error={errors.acceptsTerms} id="acceptsTerms" label="Acepto los términos del servicio" onChange={(acceptsTerms) => setForm((current) => ({ ...current, acceptsTerms }))} />
+        <CheckboxField checked={form.acceptsPrivacy} error={errors.acceptsPrivacy} id="acceptsPrivacy" label="Acepto la política de privacidad" onChange={(acceptsPrivacy) => setForm((current) => ({ ...current, acceptsPrivacy }))} />
       </div>
 
       <div className={styles.actions}>

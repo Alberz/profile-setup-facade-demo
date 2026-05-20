@@ -1,6 +1,6 @@
 import type { InputHTMLAttributes, SelectHTMLAttributes, TextareaHTMLAttributes } from 'react';
+import styles from '../../shared/styles/FormControls.module.css';
 import { Icon, type IconName } from './Icon';
-import styles from './FormControls.module.css';
 
 type BaseFieldProps = {
   id: string;

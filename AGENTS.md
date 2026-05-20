@@ -14,6 +14,7 @@ React es la capa de presentación. La lógica de negocio, las reglas semánticas
 - La lógica de negocio y de flujo no debe vivir dentro de componentes ni hooks de UI.
 - La UI consume una fachada estable del módulo; no conoce detalles internos del store ni de eventos.
 - La feature debe poder leerse por capas: `domain`, `application`, `store`, `ui`.
+- Si se soportan varios frameworks, el core del módulo vive en `application` y cada framework añade su adapter/facade y su UI sin duplicar la lógica de negocio.
 - Prioridad de decisiones: claridad pedagógica, separación de responsabilidades, sencillez y testabilidad.
 
 ## Convenciones de carpetas
@@ -28,6 +29,9 @@ src/
         │   └── rules/
         ├── application/
         │   ├── validators/
+        │   ├── create-profile-setup-core.ts
+        │   ├── create-react-facade.ts
+        │   ├── create-vue-facade.ts
         │   ├── create-facade.ts
         │   ├── events.ts
         │   └── trigger.ts
@@ -35,9 +39,9 @@ src/
         │   ├── create-store.ts
         │   └── initial-state.ts
         ├── ui/
-        │   ├── hooks/
-        │   ├── components/
-        │   └── screens/
+        │   ├── react/
+        │   ├── vue/
+        │   └── shared/
         └── index.ts
 ```
 
@@ -47,6 +51,7 @@ src/
 - `application`: flujo de caso de uso, validadores de paso, acciones, submit y decisiones como “puede avanzar”.
 - `store`: estado externo mínimo, suscripción y actualización. No debe contener reglas de negocio complejas.
 - `ui`: componentes, pantallas y hooks de presentación. No debe conocer eventos internos ni estructura privada del store.
+- `ui/shared`: assets y estilos puramente presentacionales que pueden reutilizar React y Vue.
 - `index.ts`: API pública del módulo.
 
 ## Reglas de validación por capa
@@ -62,8 +67,8 @@ No crear un archivo por cada input salvo que el campo tenga peso semántico real
 
 ## Normas para React, hooks y facade
 
-- La feature debe exponer una `createFacade(...)` orientada a React.
-- La fachada expone acciones (`init`, `next`, `prev`, `save`, etc.) y lecturas para UI (`useActiveStep`, `useIsSaving`, `useError`, etc.).
+- La feature debe exponer un core agnóstico (`createProfileSetupCore(...)`) y adapters/facades por framework.
+- Cada facade expone acciones (`init`, `next`, `prev`, `save`, etc.) y lecturas adaptadas a su framework (`useActiveStep`, `useIsSaving`, `useError`, etc.).
 - Los componentes no importan el store directamente.
 - Los componentes no disparan eventos internos directamente.
 - Los hooks de `ui/hooks` no contienen reglas de negocio; contienen interacción de interfaz.

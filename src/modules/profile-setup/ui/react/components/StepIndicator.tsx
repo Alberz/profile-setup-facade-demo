@@ -1,5 +1,5 @@
-import type { StepId } from '../../domain/models/profile-setup';
-import styles from './StepIndicator.module.css';
+import type { StepId } from '../../../domain/models/profile-setup';
+import styles from '../../shared/styles/StepIndicator.module.css';
 
 type StepIndicatorProps = {
   activeStep: StepId;

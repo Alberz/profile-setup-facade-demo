@@ -1,4 +1,4 @@
-import type { ProfileSetupFacade } from '../../application/create-facade';
+import type { ProfileSetupReactFacade } from '../../../application/create-react-facade';
 import { Icon } from '../components/Icon';
 import { InterestsStep } from '../components/InterestsStep';
 import { PersonalInfoStep } from '../components/PersonalInfoStep';
@@ -7,10 +7,10 @@ import { StepIndicator } from '../components/StepIndicator';
 import styles from './ProfileSetupScreen.module.css';
 
 type ProfileSetupScreenProps = {
-  facade: ProfileSetupFacade;
+  facade: ProfileSetupReactFacade;
 };
 
-export function ProfileSetupScreen({ facade }: ProfileSetupScreenProps) {
+export function ProfileSetupReactScreen({ facade }: ProfileSetupScreenProps) {
   const activeStep = facade.useActiveStep();
   const draft = facade.useDraft();
   const fieldErrors = facade.useFieldErrors();
